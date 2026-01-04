@@ -1,19 +1,19 @@
-using TextRPG.Models;
+ï»¿using TextRPG.Models;
 using TextRPG.Utils;
 namespace TextRPG.Data;
 
 public class GameManager
 {
-    #region ½Ì±ÛÅæ ÆĞÅÏ
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º(³»ºÎ Á¢±Ù ¿ë º¯¼ö:ÇÊµå)
+    #region ì‹±ê¸€í†¤ íŒ¨í„´
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤(ë‚´ë¶€ ì ‘ê·¼ ìš© ë³€ìˆ˜:í•„ë“œ)
     private static GameManager instance;
 
-    // ¿ÜºÎ¿¡¼­ ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â Á¤Àû ¼Ó¼º (ÇÁ·ÎÆÛÆ¼)
+    // ì™¸ë¶€ì—ì„œ ì¸ìŠ¤í„´ìŠ¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” ì •ì  ì†ì„± (í”„ë¡œí¼í‹°)
     public static GameManager Instance 
     {
         get
         {
-            // ÀÎ½ºÅÏ½º°¡ ¾øÀ¸¸é »õ·Î »ı¼º
+            // ì¸ìŠ¤í„´ìŠ¤ê°€ ì—†ìœ¼ë©´ ìƒˆë¡œ ìƒì„±
             if(instance == null)
             {
                 instance = new GameManager();
@@ -25,53 +25,53 @@ public class GameManager
 
     private GameManager()
     {
-        // Å¬·¡½º°¡ »ı¼ºµÉ ¶§ ÃÊ±âÈ­ ÀÛ¾÷ ¼öÇà
+        // í´ë˜ìŠ¤ê°€ ìƒì„±ë  ë•Œ ì´ˆê¸°í™” ì‘ì—… ìˆ˜í–‰
     }
     #endregion
 
-    #region °ÔÀÓ ½ÃÀÛ/Á¾·á
-    // °ÔÀÓ ½ÃÀÛ ¸Ş¼­µå
+    #region ê²Œì„ ì‹œì‘/ì¢…ë£Œ
+    // ê²Œì„ ì‹œì‘ ë©”ì„œë“œ
     public void StartGame()
     {
-        // Å¸ÀÌÆ² Ç¥½Ã
+        // íƒ€ì´í‹€ í‘œì‹œ
         ConsoleUI.ShowTitle();
-        Console.WriteLine("ºı¼¾ °ÔÀÓ¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù!\n");
+        Console.WriteLine("ë¹¡ì„¼ ê²Œì„ì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤!\n");
 
-        // Ä³¸¯ÅÍ »ı¼º
+        // ìºë¦­í„° ìƒì„±
         CreateCharacter();
-        // TODO: ÀÎº¥Åä¸® ÃÊ±âÈ­
-        // TODO: ÃÊ±â ¾ÆÀÌÅÛ Áö±Ş
+        // TODO: ì¸ë²¤í† ë¦¬ ì´ˆê¸°í™”
+        // TODO: ì´ˆê¸° ì•„ì´í…œ ì§€ê¸‰
 
     }
 
     #endregion
 
 
-    #region Ä³¸¯ÅÍ »ı¼º
+    #region ìºë¦­í„° ìƒì„±
     private void CreateCharacter()
     {
-        // ÀÌ¸§ ÀÔ·Â
-        Console.WriteLine("Ä³¸¯ÅÍÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä:");
-        string? name = Console.ReadLine(); // nullable Çã¿ë
+        // ì´ë¦„ ì…ë ¥
+        Console.WriteLine("ìºë¦­í„°ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”:");
+        string? name = Console.ReadLine(); // nullable í—ˆìš©
 
         if (string.IsNullOrWhiteSpace(name))
         {
-            name = "¹«¸í¿ë»ç"; // ±âº» ÀÌ¸§ ¼³Á¤
+            name = "ë¬´ëª…ìš©ì‚¬"; // ê¸°ë³¸ ì´ë¦„ ì„¤ì •
         }
 
-        Console.WriteLine($"{name}´Ô ¸ğÇèÀ» ½ÃÀÛÇÏ°Ú½À´Ï´Ù!");
+        Console.WriteLine($"{name}ë‹˜ ëª¨í—˜ì„ ì‹œì‘í•˜ê² ìŠµë‹ˆë‹¤!");
 
-        // Á÷¾÷¼±ÅÃ
-        Console.WriteLine("Á÷¾÷À» ¼±ÅÃÇÏ¼¼¿ä:");
-        Console.WriteLine("1: Àü»ç");
-        Console.WriteLine("2: ±Ã¼ö");
-        Console.WriteLine("3: ¸¶¹ı»ç");
+        // ì§ì—…ì„ íƒ
+        Console.WriteLine("ì§ì—…ì„ ì„ íƒí•˜ì„¸ìš”:");
+        Console.WriteLine("1: ì „ì‚¬");
+        Console.WriteLine("2: ê¶ìˆ˜");
+        Console.WriteLine("3: ë§ˆë²•ì‚¬");
 
         JobType job = JobType.Warrior;
 
         while (true)
         {
-            Console.WriteLine("¼±ÅÃ (1-3): ");
+            Console.WriteLine("ì„ íƒ (1-3): ");
             string? input = Console.ReadLine();
 
             switch (input)
@@ -89,7 +89,7 @@ public class GameManager
                     break;
 
                 default:
-                    Console.WriteLine("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+                    Console.WriteLine("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
                     continue;
             }
 
@@ -97,7 +97,7 @@ public class GameManager
         }
     }
 
-    //0:Àü»ç, 1:¸¶¹ı»ç, 2:±Ã¼ö - ¿­°ÅÇü º¯¼ö¸¦ ¼±¾ğ
+    //0:ì „ì‚¬, 1:ë§ˆë²•ì‚¬, 2:ê¶ìˆ˜ - ì—´ê±°í˜• ë³€ìˆ˜ë¥¼ ì„ ì–¸
 
 
     #endregion
