@@ -27,7 +27,12 @@ public class ConsoleUI
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 ");
+    }
 
-
+    // 아무키나 누르면 계속 메시지 출력
+    public static void PressAnyKey()
+    {
+        Console.WriteLine("\n아무 키나 누르면 계속합니다...");
+        Console.ReadKey(true);
     }
 }
