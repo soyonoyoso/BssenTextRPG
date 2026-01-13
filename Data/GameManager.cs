@@ -102,6 +102,11 @@ public class GameManager
         }
         Player = new Player(name, job);
         Console.WriteLine($"\n{name}님, {job}직업으로 캐릭터가 생성 되었습니다.");
+
+        Console.WriteLine($"player hp: {Player.CurrentHp}");
+        Console.WriteLine($"player mp: {Player.CurrentMp}");
+        Console.WriteLine($"player attack: {Player.AttackPower}");
+        Console.WriteLine($"player defense: {Player.Defense}");
     }
     #endregion
 
