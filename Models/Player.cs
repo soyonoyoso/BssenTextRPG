@@ -76,6 +76,15 @@ public class Player : Character
             JobType.Wizard => 5,
             _ => 15
         };
+    #endregion
+
+    #region 메서드
+    // 플레이어 정보 출력 (오버라이드)
+    public override void DisplayInfo()
+    {
+        base.DisplayInfo();
+        Console.WriteLine($"골드: {Gold}");
+    }
 
     #endregion
 }
