@@ -110,5 +110,11 @@ public class Player : Character
         return target.TakeDamage(totalDamage);
     }
 
+    // 골드 획득 메서드
+    public void GainGold(int amount)
+    {
+        Gold += amount;
+        Console.WriteLine($"골드 +{amount} 획득! 현재 골드: {Gold}");
+    }
     #endregion
 }
