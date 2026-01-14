@@ -62,7 +62,20 @@ public class BattleSystem
                     break;
 
                 case "2":
-                    // 스킬 사용
+                    // 스킬 사용 전에 MP 체크
+                    if (player.CurrentMp < 15)
+                    {
+                        Console.WriteLine("MP가 부족합니다.");
+                        Console.WriteLine($"{player.Name} 의 남은 MP: {player.CurrentMp}/{player.MaxMp}");
+                        continue;
+                    }
+
+                    // 스킬 발동
+                    int skillDamage = player.SkillAttack(enemy);
+
+                    Console.WriteLine($"{player.Name}의 스킬 공격! {enemy.Name}에게 {skillDamage}의 피해를 입혔습니다.");
+                    Console.WriteLine($"{enemy.Name} 의 남은 HP: {enemy.CurrentHp}/{enemy.MaxHp}");
+                    Console.WriteLine($"{player.Name} 의 남은 MP: {player.CurrentMp}/{player.MaxMp}");
                     break;
         
                 case "3":
