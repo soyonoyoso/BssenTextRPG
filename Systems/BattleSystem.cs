@@ -109,8 +109,20 @@ public class BattleSystem
 
         
                 case "3":
-                    // 도망 시도
-                    return false;
+                    // 도망 시도 : (확률 50%)
+                    Random random = new Random();
+                    if(random.NextDouble() < 0.5f)
+                    {
+                        Console.WriteLine("\n도망쳤습니다!");
+                        return false;
+                    }    
+
+                    else
+                    {
+                        Console.WriteLine("\n도망에 실패했습니다!");
+                        return true;
+
+                    }
 
                 default:
                     Console.WriteLine("잘못된 입력입니다. 다시 선택해주세요.");
