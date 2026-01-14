@@ -64,7 +64,7 @@ public class BattleSystem
                 case "2":
                     // 스킬 사용
                     break;
-
+        
                 case "3":
                     // 도망 시도
                     break;
@@ -73,7 +73,7 @@ public class BattleSystem
                     Console.WriteLine("잘못된 입력입니다. 다시 선택해주세요.");
                     break;
 
-            }
+    }
         }
     }
     #endregion
