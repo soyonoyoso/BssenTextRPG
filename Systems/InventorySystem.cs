@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextRPG.Models;
+using TextRPG.Utils;
 
 namespace TextRPG.Systems;
 
@@ -94,6 +95,7 @@ public class InventorySystem
 
                 case "2":
                     // 아이템 버리기 로직
+                    DropItem();
                     break;
 
                 case "0":
@@ -136,6 +138,34 @@ public class InventorySystem
         else if (index != 0)
         {
             Console.WriteLine("잘못된 선택입니다.");
+            ConsoleUI.PressAnyKey();
+        }
+    }
+
+    #endregion
+
+    #region 아이템 버리기
+    private void DropItem()
+    {
+        if (Items.Count == 0) return;
+
+        Console.WriteLine("\n버릴 아이템 번호 (0:취소)> ");
+
+        if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= Items.Count)
+        {
+            Item item = Items[index - 1];
+            Console.WriteLine($"정말 {item.Name}을 버리겠습니까? (y/n)");
+            if (Console.ReadLine()?.ToLower() == "y")
+            {
+                RemoveItem(item);
+            }
+
+            else if (index != 0)
+            {
+                Console.WriteLine("잘못된 선택입니다.");
+                ConsoleUI.PressAnyKey();
+            }
+
         }
     }
 
