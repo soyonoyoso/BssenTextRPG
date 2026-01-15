@@ -17,3 +17,8 @@ public enum ItemType
 	Potion
 }
 
+public enum EquipmentSlot
+{
+	Weapon,
+	Armor
+}
