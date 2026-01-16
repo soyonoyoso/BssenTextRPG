@@ -102,4 +102,61 @@ public class SaveLoadSystem
     }
 
     #endregion
+
+    #region 불러오기 기능
+    // 저장 파일 여부 확인
+    public static bool IsSaveFileExist()
+    {
+        return File.Exists(SaveFilePath);
+
+    }
+
+    public static GameSaveData? LoadGame()
+    {
+        try
+        {
+            // 1. JSON 파일에서 문자열 읽기
+            string jsonString = File.ReadAllText(SaveFilePath);
+            Console.WriteLine(jsonString);
+
+            // 2. JSON 문자열 -> DTO 변환 (역직렬화)
+            var saveData = JsonSerializer.Deserialize<GameSaveData>(jsonString, jsonOptions);
+            Console.WriteLine("\n게임 데이터가 로드 되었습니다.");
+            return saveData;
+        }
+
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return null;
+        }
+    }
+
+    // PlayerData DTO를 Player 클래스로 변환 메서드
+    public static Player LoadPlayer(PlayerData data)
+    {
+        // JobType을 문자열 -> 열거형(Enum)
+        var job = Enum.Parse<JobType>(data.Job);
+        // player 객체 생성
+        var player = new Player(data.Name, job);
+
+        // 스탯 설정
+        player.Level = data.Level;
+        player.CurrentHp = data.CurrentHp;
+        player.MaxHp = data.MaxHp;
+        player.CurrentMp = data.CurrentMp;
+        player.MaxMp = data.MaxMp;
+        player.AttackPower = data.AttackPower;
+        player.Defense = data.Defense;
+        player.Gold = data.Gold;
+
+        return player;
+    }
+
+    // ItemData DTO를 Inventory 클래스로 변환 메서드
+
+    // 저장된 장착 아이템을 복원 메서드 (무기/방어구)
+
+    // 아이템 생성 -> Inventory 추가
+    #endregion
 }
