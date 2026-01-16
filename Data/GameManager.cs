@@ -317,9 +317,12 @@ public class GameManager
 
         // 1. 플레이어 복원
         Player = SaveLoadSystem.LoadPlayer(saveData.Player);
+
         // 2. 인벤토리 복원
+        Inventory = SaveLoadSystem.LoadInventory(saveData.inventory, Player);
 
         // 3. 장착 아이템 복원
+        SaveLoadSystem.LoadEquippedItems(Player, saveData.Player, Inventory);
 
         Console.WriteLine("게임을 불러왔습니다.");
         ConsoleUI.PressAnyKey();
